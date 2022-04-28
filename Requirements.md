@@ -66,7 +66,7 @@ Send notification:
 * **Actor**: Payment.made (event)
 * **Command**: Send notification
 * **Data**: Task_id, price_assignment, price_compeliton
-* **Event**: Price.created
+* **Event**: Notification.sent
 
 ---
 
