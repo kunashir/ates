@@ -14,19 +14,19 @@ Authorization:
 
 ---
 
-CreateTask:
+AddTask:
 * **Actor**: Account
-* **Command**: Create a task
+* **Command**: Add a task
 * **Data**: description, status(???)
-* **Event**: Task.created
+* **Event**: Task.added
 
 ---
 
-Assign Task:
+ShuffleTask:
 * **Actor**: Account
-* **Command**: Assign a task
-* **Data**: Task
-* **Event**: Task.assigned
+* **Command**: Shuffle all tasks
+* **Data**: 
+* **Event**: Task.schuffled
 
 ---
 
@@ -39,17 +39,25 @@ Complete task:
 ---
 
 Create price:
-* **Actor**: Task.created (event)
+* **Actor**: Task.added (event)
 * **Command**: Create a price for a task
 * **Data**: Task_id, price_assignment, price_compeliton
 * **Event**: Price.created
 
 ---
 
-Create auditlog record:
+Create transaction:
 * **Actor**: Task.assigned || Task.completed || Payment.made (events)
-* **Command**: Create an auditlog record
+* **Command**: Create an transaction
 * **Data**: Accoun_id, Task_id, amount(sum)
+* **Event**: Transaction.created
+
+---
+
+Create auditlog record:
+* **Actor**: Transaction.created
+* **Command**: Create an auditlog record
+* **Data**: Transaction_id
 * **Event**: AuditLog.created
 
 ---
