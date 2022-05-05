@@ -1,4 +1,4 @@
-![Graphs](ATS_week1.png)
+![Graphs](ATS_week1_fixed.png)
 ### Domains:
 
 - Auth domain (create, update, delete user and change role)
@@ -19,7 +19,7 @@
 | Event | Type | Producer | Consumer |
 |-------|------|----------|----------|
 |Account.logined| BE| Auth | Tsk/Acc/Anl |
-| Task.created | BE | Tsk | Acc |
+| Task.added | BE | Tsk | Acc |
 | Task.assigned | BE | Tsk | Acc |
 | Task.completed | BE| Tsk | Acc |
 | Price.created | CUD | Acc |Anl |
