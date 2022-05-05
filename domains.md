@@ -1,4 +1,4 @@
-![Graphs](ATS_week1.png)
+![Graphs](ATS_week1_fixed.png)
 ### Domains:
 
 - Auth domain (create, update, delete user and change role)
@@ -19,7 +19,7 @@
 | Event | Type | Producer | Consumer |
 |-------|------|----------|----------|
 |Account.logined| BE| Auth | Tsk/Acc/Anl |
-| Task.created | BE | Tsk | Acc |
+| Task.added | BE | Tsk | Acc |
 | Task.assigned | BE | Tsk | Acc |
 | Task.completed | BE| Tsk | Acc |
 | Price.created | CUD | Acc |Anl |
@@ -33,11 +33,13 @@
 - id (int)
 - name (string)
 - email (string)
+- balance (integer)
 
 ***Task***
 - id (int)
 - description (text)
 - account_id (int)
+- status (enm)
 
 ***Price***
 - id (int)
@@ -45,8 +47,23 @@
 - price_compeliton (int)
 - task_id
 
-***AuditLog***
+***Transaction***
 - id (int)
 - task_id (int)
 - account_id (int)
+- debit (int)
+- credit (int)
+
+***AuditLog***
+- id (int)
+- tranaction_id (int)
+- account_id (int)
 - sum (int)
+- description (string)
+
+***Billing Periond***
+- id (int)
+- start_date (date)
+- end_date (date)
+
+
