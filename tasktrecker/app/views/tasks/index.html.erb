@@ -1,0 +1,26 @@
+<h1>Tasks#index</h1><%= link_to "Add task", new_task_path, class: "btn btn-primary" %>
+<% if current_account.admin? %>
+  <%= link_to "Suffle tasks", shuffle_tasks_url, class: "btn btn-danger" %>
+<% end %>
+<table class="table">
+  <tr>
+    <th class="col">id</th>
+    <th class="col">description</th>
+    <th class="col">status</th>
+    <% if current_account.admin? %>
+      <th class="col">account</th>
+    <% end %>
+    <th class="col">operations</th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td class="task"><%= task.id %></td>
+      <td class="task"><%= task.description %></td>
+      <td class="task"><%= task.status %></td>
+      <% if current_account.admin? %>
+        <td class="task"><%= task.account %></td>
+      <% end %>
+      <td class="task"><%= link_to "Close", close_task_path(task) %></td>
+    </tr>
+  <% end %>
+</table>
