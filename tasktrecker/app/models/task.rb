@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   belongs_to :account
 
   validates :description, :account, presence: true
-  enum role: {
+  enum status: {
     opened: "opened",
     closed: "closed"
   }
@@ -13,5 +13,10 @@ class Task < ApplicationRecord
     else
       where(account: account, status: :opened)
     end
+  end
+
+  def close!
+    self.status = :closed
+    save!
   end
 end

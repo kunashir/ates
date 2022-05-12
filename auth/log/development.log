@@ -3163,3 +3163,387 @@ Processing by AccountsController#current as */*
 Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 0.5ms | Allocations: 2259)
 
 
+Started GET "/accounts/2/edit" for ::1 at 2022-05-12 08:41:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 24.3ms | Allocations: 8761)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 27.1ms | Allocations: 9518)
+  Rendered layout layouts/application.html.erb (Duration: 231.9ms | Allocations: 109943)
+Completed 200 OK in 272ms (Views: 238.2ms | ActiveRecord: 14.7ms | Allocations: 124572)
+
+
+Started PATCH "/accounts/2" for ::1 at 2022-05-12 08:41:57 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Popug1", "role"=>"employee"}, "commit"=>"Update Account", "id"=>"2"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+Completed 500 Internal Server Error in 30025ms (ActiveRecord: 0.4ms | Allocations: 8574)
+
+
+  
+Kafka::DeliveryFailed (Could not connect to any of the seed brokers:
+- kafka://192.168.1.67:9092: Operation timed out):
+  
+app/controllers/accounts_controller.rb:40:in `block in update'
+app/controllers/accounts_controller.rb:26:in `update'
+Started GET "/accounts/2/edit" for ::1 at 2022-05-12 08:52:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 15.7ms | Allocations: 6528)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 17.7ms | Allocations: 7178)
+  Rendered layout layouts/application.html.erb (Duration: 66.0ms | Allocations: 43630)
+Completed 200 OK in 90ms (Views: 70.1ms | ActiveRecord: 4.2ms | Allocations: 57058)
+
+
+Started PATCH "/accounts/2" for ::1 at 2022-05-12 08:52:46 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Popug1", "role"=>"employee"}, "commit"=>"Update Account", "id"=>"2"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+Redirected to http://localhost:3000/
+Completed 302 Found in 1451ms (ActiveRecord: 0.2ms | Allocations: 6935)
+
+
+Started GET "/" for ::1 at 2022-05-12 08:52:47 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1569)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3976)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.5ms | Allocations: 9361)
+
+
+Started GET "/accounts/1/edit" for ::1 at 2022-05-12 08:56:16 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAccount Load (0.9ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 2.0ms | Allocations: 1258)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1393)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 3806)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 0.9ms | Allocations: 4634)
+
+
+Started PATCH "/accounts/1" for ::1 at 2022-05-12 08:56:21 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Aleksandr", "role"=>"admin"}, "commit"=>"Update Account", "id"=>"1"}
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mAccount Update (0.5ms)[0m  [1m[33mUPDATE "accounts" SET "full_name" = $1, "updated_at" = $2 WHERE "accounts"."id" = $3[0m  [["full_name", "Aleksandr"], ["updated_at", "2022-05-12 06:56:21.788186"], ["id", 1]]
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 1.3ms | Allocations: 6151)
+
+
+Started GET "/" for ::1 at 2022-05-12 08:56:21 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1171)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3578)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 5468)
+
+
+Started GET "/accounts/3/edit" for ::1 at 2022-05-12 08:58:23 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAccount Load (1.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 2.3ms | Allocations: 1259)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1394)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3793)
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 1.5ms | Allocations: 4618)
+
+
+Started GET "/accounts/3/edit" for ::1 at 2022-05-12 08:58:33 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAccount Load (1.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 2.1ms | Allocations: 1237)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1372)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3770)
+Completed 200 OK in 38ms (Views: 6.8ms | ActiveRecord: 1.3ms | Allocations: 4579)
+
+
+Started PATCH "/accounts/3" for ::1 at 2022-05-12 08:58:41 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Popug2", "role"=>"admin"}, "commit"=>"Update Account", "id"=>"3"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mAccount Update (0.7ms)[0m  [1m[33mUPDATE "accounts" SET "full_name" = $1, "updated_at" = $2, "role" = $3 WHERE "accounts"."id" = $4[0m  [["full_name", "Popug2"], ["updated_at", "2022-05-12 06:58:41.610767"], ["role", "admin"], ["id", 3]]
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 34ms (ActiveRecord: 4.0ms | Allocations: 6347)
+
+
+Started GET "/" for ::1 at 2022-05-12 08:58:41 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1174)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3580)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.5ms | Allocations: 5475)
+
+
+Started GET "/accounts/1/edit" for ::1 at 2022-05-12 09:06:11 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 1.5ms | Allocations: 1262)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1397)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3795)
+Completed 200 OK in 55ms (Views: 7.7ms | ActiveRecord: 12.1ms | Allocations: 6967)
+
+
+Started PATCH "/accounts/1" for ::1 at 2022-05-12 09:06:16 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Aleksandr Korolev", "role"=>"admin"}, "commit"=>"Update Account", "id"=>"1"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:93:in `set_account'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mAccount Update (1.0ms)[0m  [1m[33mUPDATE "accounts" SET "full_name" = $1, "updated_at" = $2 WHERE "accounts"."id" = $3[0m  [["full_name", "Aleksandr Korolev"], ["updated_at", "2022-05-12 07:06:16.111413"], ["id", 1]]
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 1.8ms | Allocations: 4873)
+
+
+Started GET "/" for ::1 at 2022-05-12 09:06:16 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1174)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3580)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.4ms | Allocations: 5460)
+
+
+Started GET "/accounts/2/edit" for ::1 at 2022-05-12 09:07:12 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:95:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 1.9ms | Allocations: 1331)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1481)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 16267)
+Completed 200 OK in 38ms (Views: 24.2ms | ActiveRecord: 6.0ms | Allocations: 21467)
+
+
+Started PATCH "/accounts/2" for ::1 at 2022-05-12 09:07:16 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Popug1", "role"=>"admin"}, "commit"=>"Update Account", "id"=>"2"}
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:95:in `set_account'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mAccount Update (0.3ms)[0m  [1m[33mUPDATE "accounts" SET "updated_at" = $1, "role" = $2 WHERE "accounts"."id" = $3[0m  [["updated_at", "2022-05-12 07:07:16.471760"], ["role", "admin"], ["id", 2]]
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms (ActiveRecord: 1.2ms | Allocations: 7361)
+
+
+Started GET "/" for ::1 at 2022-05-12 09:07:16 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1194)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3614)
+Completed 200 OK in 16ms (Views: 6.8ms | ActiveRecord: 0.6ms | Allocations: 8643)
+
+
+Started GET "/accounts/1/edit" for ::1 at 2022-05-12 09:07:24 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:95:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 2.6ms | Allocations: 1252)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1387)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3785)
+Completed 200 OK in 42ms (Views: 9.9ms | ActiveRecord: 0.4ms | Allocations: 4595)
+
+
+Started PATCH "/accounts/1" for ::1 at 2022-05-12 09:07:28 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Aleksandr Korolev", "role"=>"accounting_clerk"}, "commit"=>"Update Account", "id"=>"1"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:95:in `set_account'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mAccount Update (0.8ms)[0m  [1m[33mUPDATE "accounts" SET "updated_at" = $1, "role" = $2 WHERE "accounts"."id" = $3[0m  [["updated_at", "2022-05-12 07:07:28.035873"], ["role", "accounting_clerk"], ["id", 1]]
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 1.4ms | Allocations: 7006)
+
+
+Started GET "/" for ::1 at 2022-05-12 09:07:28 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1174)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3580)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.5ms | Allocations: 5479)
+
+
+Started GET "/accounts/1/edit" for ::1 at 2022-05-12 09:07:35 +0200
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:95:in `set_account'
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/edit.html.erb within layouts/application
+  Rendered accounts/_form.html.erb (Duration: 1.6ms | Allocations: 1258)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1393)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3791)
+Completed 200 OK in 39ms (Views: 7.1ms | ActiveRecord: 0.5ms | Allocations: 4601)
+
+
+Started PATCH "/accounts/1" for ::1 at 2022-05-12 09:07:38 +0200
+Processing by AccountsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "account"=>{"full_name"=>"Aleksandr Korolev", "role"=>"admin"}, "commit"=>"Update Account", "id"=>"1"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:95:in `set_account'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mAccount Update (0.3ms)[0m  [1m[33mUPDATE "accounts" SET "updated_at" = $1, "role" = $2 WHERE "accounts"."id" = $3[0m  [["updated_at", "2022-05-12 07:07:38.889071"], ["role", "admin"], ["id", 1]]
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/accounts_controller.rb:29:in `block in update'
+Redirected to http://localhost:3000/
+Completed 302 Found in 48ms (ActiveRecord: 1.2ms | Allocations: 7008)
+
+
+Started GET "/" for ::1 at 2022-05-12 09:07:38 +0200
+Processing by AccountsController#index as TURBO_STREAM
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1174)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3600)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.4ms | Allocations: 5494)
+
+
+Started GET "/accounts/3" for ::1 at 2022-05-12 09:09:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/accounts/3"):
+  
+Started GET "/oauth/authorize?client_id=RvQNo-uyWePnkLWJd0-vX2quVIQfnBBMyAoNOBZX2uc&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fauth%2Fkeepa%2Fcallback&response_type=code&scope=public_writes&state=44605f46b8ed1576d90741bb20068552e389b525b329f432" for ::1 at 2022-05-12 09:22:06 +0200
+Processing by Doorkeeper::AuthorizationsController#new as HTML
+  Parameters: {"client_id"=>"RvQNo-uyWePnkLWJd0-vX2quVIQfnBBMyAoNOBZX2uc", "redirect_uri"=>"http://localhost:3001/auth/keepa/callback", "response_type"=>"code", "scope"=>"public_writes", "state"=>"44605f46b8ed1576d90741bb20068552e389b525b329f432"}
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ config/initializers/doorkeeper.rb:15:in `block (2 levels) in <main>'
+  [1m[36mDoorkeeper::Application Load (2.6ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "RvQNo-uyWePnkLWJd0-vX2quVIQfnBBMyAoNOBZX2uc"], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::Application Load (0.0ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "RvQNo-uyWePnkLWJd0-vX2quVIQfnBBMyAoNOBZX2uc"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::AccessGrant Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_grants" WHERE "oauth_access_grants"."token" = $1 LIMIT $2[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessGrant Create (1.6ms)[0m  [1m[32mINSERT INTO "oauth_access_grants" ("resource_owner_id", "application_id", "token", "expires_in", "redirect_uri", "created_at", "revoked_at", "scopes") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", 1], ["token", "[FILTERED]"], ["expires_in", 600], ["redirect_uri", "http://localhost:3001/auth/keepa/callback"], ["created_at", "2022-05-12 07:22:06.238166"], ["revoked_at", nil], ["scopes", "public_writes"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3001/auth/keepa/callback?code=qFl8ZjoHKqrrl4hDmi1mN4zH_XRMrHxdIbfEiKYJGpY&state=44605f46b8ed1576d90741bb20068552e389b525b329f432
+Completed 302 Found in 93ms (ActiveRecord: 20.4ms | Allocations: 26766)
+
+
+Started POST "/oauth/token" for ::1 at 2022-05-12 09:22:06 +0200
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"client_id"=>"RvQNo-uyWePnkLWJd0-vX2quVIQfnBBMyAoNOBZX2uc", "client_secret"=>"[FILTERED]", "code"=>"[FILTERED]", "grant_type"=>"authorization_code", "redirect_uri"=>"http://localhost:3001/auth/keepa/callback?code=qFl8ZjoHKqrrl4hDmi1mN4zH_XRMrHxdIbfEiKYJGpY&state=44605f46b8ed1576d90741bb20068552e389b525b329f432"}
+  [1m[36mDoorkeeper::AccessGrant Load (0.2ms)[0m  [1m[34mSELECT "oauth_access_grants".* FROM "oauth_access_grants" WHERE "oauth_access_grants"."token" = $1 LIMIT $2[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::Application Load (0.3ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications" WHERE "oauth_applications"."uid" = $1 LIMIT $2[0m  [["uid", "RvQNo-uyWePnkLWJd0-vX2quVIQfnBBMyAoNOBZX2uc"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::AccessGrant Load (0.2ms)[0m  [1m[37mSELECT "oauth_access_grants".* FROM "oauth_access_grants" WHERE "oauth_access_grants"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessGrant Update (0.3ms)[0m  [1m[33mUPDATE "oauth_access_grants" SET "revoked_at" = $1 WHERE "oauth_access_grants"."id" = $2[0m  [["revoked_at", "2022-05-12 07:22:06.297041"], ["id", 16]]
+  [1m[36mDoorkeeper::Application Load (0.2ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications" WHERE "oauth_applications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Doorkeeper::Application Load (0.0ms)[0m  [1m[34mSELECT "oauth_applications".* FROM "oauth_applications" WHERE "oauth_applications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Create (0.6ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "refresh_token", "expires_in", "revoked_at", "created_at", "scopes", "previous_refresh_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", 1], ["token", "[FILTERED]"], ["refresh_token", "[FILTERED]"], ["expires_in", 7200], ["revoked_at", nil], ["created_at", "2022-05-12 07:22:06.337346"], ["scopes", "public_writes"], ["previous_refresh_token", "[FILTERED]"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 11.8ms | Allocations: 28282)
+
+
+Started GET "/accounts/current" for ::1 at 2022-05-12 09:22:06 +0200
+Processing by AccountsController#current as */*
+  [1m[36mDoorkeeper::AccessToken Load (0.2ms)[0m  [1m[34mSELECT "oauth_access_tokens".* FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:87:in `current_account'
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:88:in `current_account'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1715)
+
+
+Started GET "/" for ::1 at 2022-05-12 09:22:45 +0200
+Processing by AccountsController#index as HTML
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1172)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3586)
+Completed 200 OK in 41ms (Views: 8.9ms | ActiveRecord: 0.8ms | Allocations: 5471)
+
+
+Started GET "/" for ::1 at 2022-05-12 09:22:47 +0200
+Processing by AccountsController#index as HTML
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 ORDER BY "accounts"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:20
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1172)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3590)
+Completed 200 OK in 10ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 5445)
+
+
