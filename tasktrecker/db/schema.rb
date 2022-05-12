@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_11_113717) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_071355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_113717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.enum "status", default: "opened", null: false, enum_type: "task_statuses"
+    t.uuid "public_id", default: -> { "gen_random_uuid()" }, null: false
     t.index ["account_id"], name: "index_tasks_on_account_id"
   end
 

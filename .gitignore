@@ -46,6 +46,9 @@ build-iPhoneSimulator/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
-
+/auth/storage
+/*/log/
+/*/tmp/
+/*/node_modules
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
