@@ -8,14 +8,15 @@
         p payload
         puts '-' * 80
         data = payload['data']
-        if payload["event_name"] == "AccountUpdated"
+        case payload["event_name"]
+        when "AccountUpdated"
           account = Account.find_by(public_id: data["public_id"]) || Account.new
           account.name = data["full_name"]
           account.public_id = data["public_id"]
           account.role = data["role"]
           account.active = data["active"]
           account.save!
-        elsif payload["event_name"] = "AccountDeleted"
+        when "AccountDeleted"
           account = Account.find_by(public_id: data["public_id"])
           account.destroy! if account
         end
