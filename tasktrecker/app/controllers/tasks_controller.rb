@@ -19,6 +19,8 @@ class TasksController < ApplicationController
           data: {
             public_id: @task.public_id,
             account_id: @task.account.public_id,
+            description: @task.description,
+            created_at: @task.created_at
           }
         }
         WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-stream')
@@ -29,7 +31,7 @@ class TasksController < ApplicationController
             account_id: @task.account.public_id,
           }
         }
-        WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks')
+        WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-lifecycle')
         # -------------------------------------------------------------------
       redirect_to tasks_url
     else
@@ -37,7 +39,8 @@ class TasksController < ApplicationController
     end
   end
 
-  def suffle
+  def shuffle
+    messages = []
     tasks = Task.where(status: :opened).find_each do |task|
       task.account = Account.rand
       if task.save!
@@ -49,10 +52,11 @@ class TasksController < ApplicationController
             account_id: task.account.public_id,
           }
         }
-        WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks')
         # -------------------------------------------------------------------
+        messages << event
       end
     end
+    WaterDrop::BatchSyncProducer.call(messages, topic: 'tasks')
     redirect_to tasks_url
   end
 
