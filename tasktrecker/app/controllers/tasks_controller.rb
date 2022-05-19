@@ -56,7 +56,7 @@ class TasksController < ApplicationController
         messages << event
       end
     end
-    WaterDrop::BatchSyncProducer.call(messages, topic: 'tasks')
+    WaterDrop::BatchSyncProducer.call(messages, topic: 'tasks-lifecycle')
     redirect_to tasks_url
   end
 
@@ -71,7 +71,7 @@ class TasksController < ApplicationController
         account_id: task.account.public_id,
       }
     }
-    WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks')
+    WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-lifecycle')
     # -------------------------------------------------------------------
     redirect_to tasks_url
   end

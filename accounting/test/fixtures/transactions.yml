@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: one
+  reacon: MyString
+  debit: 1
+  credit: 1
+
+two:
+  account: two
+  reacon: MyString
+  debit: 1
+  credit: 1
