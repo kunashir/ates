@@ -17,22 +17,37 @@ class TasksController < ApplicationController
         # ----------------------------- produce event -----------------------
         event = {
           event_name: 'Task.created',
+          "event_id":      SecureRandom.uuid,
+          "event_version": 2,
+          "event_time":    Time.now.to_s,
+          "producer":      "Task.producer",
           data: {
             public_id: @task.public_id,
             account_id: @task.account.public_id,
             description: @task.description,
-            created_at: @task.created_at
+            jira_id: @task.jira_id,
+            created_at: @task.created_at.to_s
           }
         }
-        WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-stream')
+        result = SchemaRegistry.validate_event(event, 'task.created', version: 2)
+        if result.success?
+          WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-stream')
+        end
         event = {
           event_name: 'Task.assigned',
+          "event_id":      SecureRandom.uuid,
+          "event_version": 1,
+          "event_time":    Time.now.to_s,
+          "producer":      "Task.producer",
           data: {
             public_id: @task.public_id,
             account_id: @task.account.public_id,
           }
         }
-        WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-lifecycle')
+        result = SchemaRegistry.validate_event(event, 'task.assigned', version: 1)
+        if result.success?
+          WaterDrop::SyncProducer.call(event.to_json, topic: 'tasks-lifecycle')
+        end
         # -------------------------------------------------------------------
       redirect_to tasks_url
     else
@@ -84,6 +99,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:description)
+    params.require(:task).permit(:description, :jira_id)
   end
 end
