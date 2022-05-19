@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :account
 
-  validates :description, :account, presence: true
+  validates :description, :jira_id, :account, presence: true
   enum status: {
     opened: "opened",
     closed: "closed"
