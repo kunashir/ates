@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  # get 'tasks/index'
-  # get 'tasks/new'
-  # get 'tasks/create'
-  # get 'tasks/index'
-  # get 'tasks/suffle'
-  # get 'tasks/close'
   resources :tasks, only: [:index, :new, :create, ] do
     collection do
       get 'shuffle'

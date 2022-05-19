@@ -20,7 +20,15 @@ end
 
 class JsonDeserializer
   def self.call(message)
-    JSON.parse(message)
+    result = params.raw_payload.nil? ? nil : ::JSON.parse(params.raw_payload)
+    pp "-"*40
+    pp result
+    pp "-"*40
+    result
+  rescue
+    pp message.payload
+    pp "Error parsing the message"
+    {}
   end
 end
 
@@ -51,26 +59,26 @@ class KarafkaApp < Karafka::App
       *Rails.application.reloaders
     )
   )
-
-  consumer_groups.draw do
-    topic :accounts do
-      consumer AccountConsumer
-    end
-    topic :"accounts-stream" do
-      consumer AccountStreamConsumer
-    end
-
-    # consumer_group :bigger_group do
-    #   topic :test do
-    #     consumer TestConsumer
-    #   end
-    #
-    #   topic :test2 do
-    #     consumer Test2Consumer
-    #   end
-    # end
-  end
 end
+
+  KarafkaApp.consumer_groups.draw do
+    consumer_group "accounting" do
+      topic :accounts do
+        consumer AccountConsumer
+      end
+      topic :"accounts-stream" do
+        consumer AccountStreamConsumer
+      end
+      topic :"tasks-stream" do
+        # deserializer JsonDeserializer
+        consumer TaskStreamConsumer
+      end
+      topic :"tasks-lifecycle" do
+        consumer TaskConsumer
+        # deserializer JsonDeserializer
+      end
+    end
+  end
 
 Karafka.monitor.subscribe('app.initialized') do
   # Put here all the things you want to do after the Karafka framework

@@ -24,6 +24,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_065424) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "auth_identies", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.text "uid"
+    t.text "login"
+    t.text "token"
+    t.text "password_hash"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "provider"
+    t.index ["account_id"], name: "index_auth_identies_on_account_id"
+  end
+
   create_table "billing_periods", force: :cascade do |t|
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
@@ -53,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_065424) do
     t.index ["account_id"], name: "index_transactions_on_account_id"
   end
 
+  add_foreign_key "auth_identies", "accounts"
   add_foreign_key "tasks", "accounts"
   add_foreign_key "transactions", "accounts"
 end

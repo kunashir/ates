@@ -13,6 +13,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.account = Account.rand
     if @task.save
+        @task.reload
         # ----------------------------- produce event -----------------------
         event = {
           event_name: 'Task.created',
@@ -53,7 +54,7 @@ class TasksController < ApplicationController
           }
         }
         # -------------------------------------------------------------------
-        messages << event
+        messages << event.to_json
       end
     end
     WaterDrop::BatchSyncProducer.call(messages, topic: 'tasks-lifecycle')
@@ -65,7 +66,7 @@ class TasksController < ApplicationController
     task.close!
     # ----------------------------- produce event -----------------------
     event = {
-      event_name: 'Task.Completed',
+      event_name: 'Task.completed',
       data: {
         public_id: task.public_id,
         account_id: task.account.public_id,

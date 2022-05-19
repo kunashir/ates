@@ -3,7 +3,7 @@ class BillingPeriod < ApplicationRecord
 
   def self.close!(account, start_date, end_date)
     if account.balance > 0
-      ActiveRecord::Transaction do
+      ActiveRecord::Base.transaction do
         account.balance = 0
         account.save
         Transaction.make(account: account, reason: "payment", credit: account.balance)

@@ -1,0 +1,16 @@
+<h1>Dashboard#popug</h1>
+<H1> YOUR BALANCE for today is: <%= @current_balance %> </h1>
+<table class="table">
+  <tr>
+    <th class="col">id</th>
+    <th class="col">description</th>
+    <th class="col">summa</th>
+  </tr>
+  <% @transcations.each do |tr| %>
+    <tr>
+      <td class="task"><%= tr.id %></td>
+      <td class="task"><%= tr.reason %></td>
+      <td class="task"><%= (tr.debit > 0 ? tr.debit : tr.credit) / 100 %></td>
+    </tr>
+  <% end %>
+</table>
