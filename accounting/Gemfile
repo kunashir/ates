@@ -48,6 +48,7 @@ gem 'omniauth' #, '~> 1.9.1'
 gem "omniauth-accounts", "~> 0.1.2"
 gem 'karafka'
 gem "waterdrop", "~> 1.x"
+gem 'schema_registry', path: '../event_schema_registry/ruby/'
 
 
 group :development, :test do
