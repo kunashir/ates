@@ -21,8 +21,18 @@
 
           task = Task.find_by(public_id: data["public_id"])
           task = Task.new(public_id: data["public_id"]) unless task
-          jira_id = data["jira_id"]
-          task.description = "#{jira_id} - #{data["description"]}"
+          task.jira_id = data["jira_id"]
+          task.description = data["description"]
+          task.created_at = data["created_at"]
+          task.account = Account.find_by(public_id: data["account_id"])
+          task.save!
+        when ['Task.updated', 1]
+          return unless data["public_id"]
+
+          task = Task.find_by(public_id: data["public_id"])
+          task = Task.new(public_id: data["public_id"]) unless task
+          task.jira_id = data["jira_id"]
+          task.description = data["description"]
           task.created_at = data["created_at"]
           task.account = Account.find_by(public_id: data["account_id"])
           task.save!
